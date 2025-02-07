@@ -28,6 +28,7 @@ public class Main {
                 case 0:
                     System.out.println("Saliendo de contactos...");
                     break;
+
                 case 1:
                     miTelefono.printContacts();
                     System.out.println("----------------------------------------------------------");
@@ -61,14 +62,18 @@ public class Main {
                         System.out.print("Introduce el nombre para el nuevo contacto: ");
                         String nombreNuevo = sc.nextLine();
 
-                        System.out.print("Ahora el número de teléfono: ");
-                        String telNuevo = sc.nextLine();
+                        if (miTelefono.queryContact(nombreNuevo) != null) {
+                            System.out.println("Error. El contacto introducido ya existe.");
+                        } else {
+                            System.out.print("Ahora el número de teléfono: ");
+                            String telNuevo = sc.nextLine();
 
-                        Contacto modificarContacto = new Contacto(nombreNuevo, telNuevo);
-                        Contacto contactoExistente = miTelefono.queryContact(nombreExistente);
+                            Contacto modificarContacto = new Contacto(nombreNuevo, telNuevo);
+                            Contacto contactoExistente = miTelefono.queryContact(nombreExistente);
 
-                        miTelefono.updateContact(contactoExistente, modificarContacto);
-                        System.out.println("Contacto modificado exitosamente");
+                            miTelefono.updateContact(contactoExistente, modificarContacto);
+                            System.out.println("Contacto modificado exitosamente");
+                        }
                     } else {
                         System.out.println("El contacto introducido no existe");
                     }
