@@ -43,7 +43,7 @@ public class TelefonoMovil {
 
     private int findContact(String nombre) {
         for (int i = 0; i < myContacts.size(); i++) {
-            if (myContacts.get(i).getName().equals(nombre)) {
+            if (myContacts.get(i).getName().equalsIgnoreCase(nombre)) {
                 return i;
             }
         }
