@@ -39,12 +39,10 @@ public class Main {
                     System.out.print("Introduce el nombre del nuevo contacto: ");
                     String nombre1 = sc.nextLine();
 
-                    System.out.print("Ahora el número de teléfono: ");
-                    String tel1 = sc.nextLine();
-
-                    Contacto contacto = Contacto.createContact(nombre1,tel1);
-
                     if (miTelefono.queryContact(nombre1) == null) {
+                        System.out.print("Ahora el número de teléfono: ");
+                        String tel1 = sc.nextLine();
+                        Contacto contacto = Contacto.createContact(nombre1,tel1);
                         miTelefono.addNewContact(contacto);
                         System.out.println("Contacto agregado con éxito.");
                     } else {
